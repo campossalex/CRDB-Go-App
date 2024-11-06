@@ -103,7 +103,7 @@ func (r *runner) run(db *pgxpool.Pool) error {
 
 		taken, err := performTransfer(db, ids[0], ids[1], rand.Intn(100))
 		if err != nil && !errors.Is(err, context.Canceled) {
-			log.Printf("error: %v", err)
+			log.Printf("Transaction error: %v", err)
 		}
 
 		log.Printf(
